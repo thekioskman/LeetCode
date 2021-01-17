@@ -1,1 +1,1 @@
-# Other-Problems
+# LeetCode
