@@ -1,0 +1,51 @@
+class ListNode(object):
+  def __init__(self, val=0, next=None):
+    self.val = val
+    self.next = next
+
+def add_nums(l1, l2):
+  '''
+  l1: ListNode
+  l2: ListNode
+  return: ListNode
+  '''
+  total = 0;
+  counter = 0;
+  curr_node = l1
+  #interate through l1 add to total
+  while(curr_node):
+    total += curr_node.val * (10**counter)
+    counter += 1
+    curr_node = curr_node.next
+
+  #interate through l2
+  curr_node = l2
+  counter = 0
+  while(curr_node):
+    total += curr_node.val * (10**counter)
+    counter += 1
+    curr_node = curr_node.next
+
+  #turn the value into a linked list
+
+
+
+  str_total = str(total)
+
+  if len(str_total) == 1:
+    print(ListNode(total))
+
+
+  return_list = ListNode()
+  return_list.val = int(str_total[-1])
+  return_list.next = ListNode()
+
+  temp = return_list.next
+  temp.val = str_total[-2]
+
+  for i in range(len(str_total)-3 , -1, -1):
+    temp.next = ListNode()
+    temp = temp.next;
+    temp.val = int(str_total[i])
+    
+   return return_list
